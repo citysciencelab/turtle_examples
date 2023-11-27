@@ -8,8 +8,11 @@ turtle.right(-90)
 # the base and branch of the Y
 angle = 30
   
-# function to plot a Y
-def y(size, level):   
+# define a function to plot a Y
+# that calls itself to draw a tree
+# with a smaller Y being drawn on top of any Y until the end of the branches (level) is reached
+def y(size, level):
+    # draw a Y unless we reached level 0 (the outer most end of the tree)
     if level > 0:
         turtle.colormode(255)
           
@@ -22,9 +25,11 @@ def y(size, level):
         # drawing the base
         turtle.forward(size)
         turtle.right(angle)
-  
-        # recursive call for
-        # the right subtree
+
+        # once we reach the right top end of the Y
+        # call the function itself again recursively
+        # to the right subtree
+        # this will happen until the the set number of levels has been drawn
         y(0.8 * size, level-1)
           
         turtle.pencolor(0, 255//level, 0)
@@ -32,13 +37,15 @@ def y(size, level):
   
         # recursive call for
         # the left subtree
+        # same as right
         y(0.8 * size, level-1)
           
         turtle.pencolor(0, 255//level, 0)
         turtle.right(angle)
         turtle.forward(-size)
            
-          
-# tree of size 80 and level 7
+
+# call the function to draw
+# a tree of size 80 and level 10
 y(80, 10)
 turtle.done()

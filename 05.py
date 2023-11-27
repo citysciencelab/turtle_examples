@@ -1,3 +1,5 @@
+# The tutorial for this racing game can be found at https://youtu.be/gQP0geNsO4A
+
 import random, turtle
 
 myscreen= turtle.Screen()
